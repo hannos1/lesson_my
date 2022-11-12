@@ -1,0 +1,26 @@
+page{
+  position: relative;
+  width: 100vw; /*  相对单位 viewport width  */
+  height: 100vh; 
+}
+
+
+.container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 80%;
+  height: 60%;
+  border: 1px solid red;
+  /* margin:0px auto; */
+  overflow: hidden;
+  border-radius: 5px;
+  text-align: center;
+}
+
+
+.title{
+  color:red;
+  font-size: 20px;
+}
