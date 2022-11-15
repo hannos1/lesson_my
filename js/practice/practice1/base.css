@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.wp {
+    width: 1000px;
+    height: 600px;
+    position: relative;
+    left: 100px;
+    /* css调试技巧 */
+    background: green;
+    /* 盒子模型 */
+    /* border: 1px solid green; */
+    display: flex;
+    /* flex-direction: row;
+    flex-wrap: wrap; */
+    flex-flow: row nowrap;
+    /* justify-content: center; */
+    /* align-items: center; */
+    align-content: flex-start;
+}
+
+.box{
+    color: rgb(255, 255, 255);
+    /* flex-shrink: 1; */
+}
+
+.box.size1 {
+    background: blue;
+
+    
+    /* flex-shrink: 1;
+    flex-grow: 1; */
+    flex-basis: 400px;
+    width: 300px;
+    height: 100px;
+    align-self: flex-end;
+}
+
+.box.size2 {
+    background: rgb(212, 209, 203);
+    width: 200px;
+    height: 100px;
+    /* flex-grow: 1; */
+}
+
+.box.size3 {
+    background: rgb(47, 162, 37);
+    width: 200px;
+    height: 100px;
+    /* flex-grow: 1; */
+}
+
+.box.size4 {
+    background: rgb(5, 0, 0);
+    width: 100px;
+    height: 100px;
+}

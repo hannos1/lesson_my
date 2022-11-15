@@ -1,0 +1,45 @@
+/* css reset 样式重置 */
+body, div, dl, dt, dd, ul, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, blockquote{
+    margin: 0;
+    padding: 0;
+}
+
+.row{
+    height: 20vh;
+    background-color: green;
+    font-size: 0;
+    margin-bottom: 10px;
+}
+
+.col{
+    display: inline-block;
+    /* 不会换行 
+       inline-block 可以设置宽高
+       bug 间隙
+       列式布局
+    */
+    /* width: 10%; */
+    font-size: 16px;
+    height: 100%;
+    background-color: pink;
+    /* 文字水平垂直居中 */
+    text-align: center;
+    line-height: 20vh;
+}
+
+.col-7{
+    width: 70%;
+}
+
+.col-3{
+    width: 30%;
+}
+
+.col:nth-child(2n){
+    background-color: yellow;
+}
+
+.container{
+    width: 960px;
+    margin: 0 auto;
+}
