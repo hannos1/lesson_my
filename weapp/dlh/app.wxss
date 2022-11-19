@@ -1,0 +1,15 @@
+@import "styles/reset.wxss";
+@import "styles/action.wxss";
+@import "styles/button.wxss";
+@import "styles/hero.wxss";
+
+
+/* 统一设置一下每个页面 */
+page{
+  background: #f8f8f8;
+}
+
+.section{
+  height: 100vh;
+}
+
