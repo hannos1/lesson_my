@@ -1,0 +1,32 @@
+<!-- wxml叫模板 即模板数据驱动的界面 -->
+<view class="container">
+  <view class="page-section-spacing scrollH">
+    <!-- 滚动的内容 -->
+    <scroll-view  class="scroll-view_H" scroll-x="true" >
+      <view class="scroll-view-item_H"
+      wx:key="text"
+       wx:for="{{nav}}">
+        <text class="navItem">{{item.text}}</text>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="heroList">
+    <scroll-view 
+      scroll-y="true" 
+      style="height:1040rpx;"
+    >
+      <view class="heroItem">
+        <view 
+          class="hItem" 
+          wx:for="{{heroList}}"
+          wx:key="heroid"
+        >
+          <image 
+            class="hItemimg"
+            src="https:{{item.heroimg}}"
+          />
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

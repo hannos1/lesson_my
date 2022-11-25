@@ -1,0 +1,58 @@
+.page-section-spacing{
+  background: rgba(0,0,0,0.3);
+  width: 100%;
+  color: white;
+  box-shadow: 0 0.01rem 0.18rem rgba(0, 0, 0, 0.6);
+}
+
+.scroll-view-item_H{
+  display:inline-block;
+  height: 70rpx;
+  /* rpx是小程序会适配大小的单位 */
+  line-height: 70rpx;
+  font-size: 10pt;/*字体 用pt*/
+}
+
+.scroll-view_H{
+  white-space: nowrap;
+}
+
+.navItem{
+  padding: 0 10px;
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-align: center;
+}
+
+
+/* 英雄列表 */
+.heroList{
+  width: 100%;
+
+}
+
+.heroItem{
+  width:100%;
+  box-sizing: border-box;
+  padding: 10rpx 10rpx;
+}
+
+.heroItem .hItem{
+  width: 45%;
+  height: 180pt;
+  background:transparent;
+  margin: 10rpx;
+}
+.heroItem .hItem:nth-child(2n){
+  float: right;
+}
+
+.heroItem .hItem:nth-child(2n+1){
+  float: left;
+}
+
+.hItemimg{
+  width: 100%;
+  height: 100%;
+}
