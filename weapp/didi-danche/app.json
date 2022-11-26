@@ -1,13 +1,14 @@
 {
-  "pages":[
+  "pages": [
+    "pages/home/index",
     "pages/index/index",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "青桔单车",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "permission": {
     "scope.userLocation": {
