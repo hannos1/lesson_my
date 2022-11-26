@@ -1,0 +1,44 @@
+.map{
+  width: 100%;
+  height: 100%;
+}
+
+.top-tips{
+  position: absolute;
+  width: 710rpx;
+  height: 108rpx;
+  left: 50%;
+  z-index: 999;
+  transform: translateX(-50%);
+  top: 12rpx;
+  display: flex;
+  background-color: #fff;
+  align-items: center;
+  padding-left: 20rpx;
+  font-size: 14pt;
+  color: #666;
+}
+
+.top-icon{
+  width: 74rpx;
+  height: 74rpx;
+  margin-right: 24rpx;
+  border-radius: 50%;
+}
+
+.top-text{
+  flex: 1;
+  /* background-color: green; */
+
+}
+
+.map-icon{
+  position: absolute;
+  right: 20rpx;
+  width: 76rpx;
+  height: 76rpx;
+}
+
+.map-icon_reset{
+  bottom: 42rpx;
+}
