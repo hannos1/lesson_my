@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// function Foo(who) {
+// this.me = who;
+// }
+// Foo.prototype.identify = function() {
+// return "I am " + this.me;
+// };
+// function Bar(who) {
+// Foo.call( this, who );
+// }
+// Bar.prototype = Object.create( Foo.prototype );
+// Bar.prototype.speak = function() {
+// alert( "Hello, " + this.identify() + "." );
+// };
+// var b1 = new Bar( "b1" );
+// var b2 = new Bar( "b2" );
+// b1.speak();
+// b2.speak()
+
+
+function mixin( sourceObj, targetObj ) {
+for (var key in sourceObj) {
+// 只会在不存在的情况下复制
+if (!(key in targetObj)) {
+targetObj[key] = sourceObj[key];
+}
+}
+return targetObj;
+}
+
+var Vehicle = {
+engines: 1,
+ignition: function() {
+console.log( "Turning on my engine." );
+},
+drive: function() {
+this.ignition();
+console.log( "Steering and moving forward!" );
+}
+};
+
+var Car = mixin( Vehicle, {
+wheels: 4,
+drive: function() {
+Vehicle.drive.call( this );
+console.log(
+"Rolling on all " + this.wheels + " wheels!"
+);
+}
+} );
+
+    </script>
+
+    
+</body>
+</html>
