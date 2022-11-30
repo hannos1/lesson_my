@@ -1,0 +1,9 @@
+- git init 
+- git add readme.md 多次添加到暂存区
+- git commit -m 'reason' 一次性提交
+- git log --oneline 提交记录
+- git reset --hard HEAD^ 可以回到之前的版本
+- git status 当前仓库状态,
+- git pull origin master 拉下来
+- git push origin master 提交到远程仓库 仓库和origin绑定了
+- git diff 查看暂存区的和现在的文件的区别
