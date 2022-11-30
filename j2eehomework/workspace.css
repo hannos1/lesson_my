@@ -1,0 +1,13 @@
+.container{
+    /*background-image:url(../img/workspace.png);*/
+    /*background-image:linear-gradient(0deg,rgb(18, 151, 171), rgb(29, 87, 105),rgb(18, 151, 171),rgb(29, 87, 105), rgb(18, 151, 171));*/
+    background-image:url(./title.png);
+    background-color:rgb(18, 151, 171);
+    background-size:25%;
+    background-repeat:no-repeat;
+    background-position:50%;
+    overflow:hidden;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}

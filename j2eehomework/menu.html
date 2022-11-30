@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu</title>
+    <link rel="stylesheet" href="./common.css">
+    <link rel="stylesheet" href="./menu.css">
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="li">
+            <div class="img" style="background-position:0 2px;"></div>
+            <div class="span" id="span1">信息查询</div>
+            <!-- <div class="chose">Information</div> -->
+            <div class="limask">
+                <button class="libt" id="libt1" onclick="runto('search_a')"></button>
+            </div>
+        </div>
+        <div class="li">
+            <div class="img" style="background-position:-96px -46px;"></div>
+            <div class="span" id="span2">信息发布</div>
+            <!-- <div class="chose">Information</div> -->
+            <div class="limask">
+                <button class="libt" id="libt2" onclick="runto('commit_a')"></button>
+            </div>
+        </div>
+        
+        <div class="li">
+            <div class="img" style="background-position:-144px 2px;"></div>
+            <div class="span" id="span3">用户管理</div>
+            <!-- <div class="chose">Information</div> -->
+            <div class="limask">
+                <button class="libt" id="libt3" onclick="runto('usermanager_a')"></button>
+            </div>
+        </div>
+        <div class="li">
+            <div class="img" style="background-position:0 -46px;"></div>
+            <div class="span" id="span4">信息管理</div>
+            <!-- <div class="chose">Information</div> -->
+            <div class="limask">
+                <button class="libt" id="libt4" onclick="runto('infomanager_a')"></button>
+            </div>
+        </div>
+        <div class="li">
+            <div class="img" style="background-position:-144px -46px;"></div>
+            <div class="span" id="span5">用户权限</div>
+            <!-- <div class="chose">Information</div> -->
+            <div class="limask">
+                <button class="libt" id="libt5" onclick="runto('right_a')"></button>
+            </div>
+        </div>
+        <div class="li">
+            <div class="img" style="background-position:-192px 0;"></div>
+            <div class="span" id="span6" style="font-size:16px;">系统表管理</div>
+            <!-- <div class="chose">Information</div> -->
+            <div class="limask">
+                <button class="libt" id="libt6" onclick="runto('table_a')"></button>
+            </div>
+        </div>
+        <div class="li">
+            <div class="img" style="background-position:-48px -94px;"></div>
+            <div class="span" id="span7">个人信息</div>
+            <!-- <div class="chose">Information</div> -->
+            <div class="limask">
+                <button class="libt" id="libt7" onclick="runto('self_a')"></button>
+            </div>
+        </div>
+        <div class="li">
+            <div class="img" style="background-position:-192px -46px;"></div>
+            <div class="span" id="span8">安全退出</div>
+            <!-- <div class="chose">Information</div> -->
+            <div class="limask">
+                <button class="libt" id="libt8" onclick="runto('exit_a')"></button>
+            </div>
+        </div>
+
+        <a href="./register.html" target="workspace" id="search_a" style="visibility:hidden;"></a>
+        <a href="" target="workspace" id="commit_a" style="visibility:hidden;"></a>
+        <a href="" target="workspace" id="usermanager_a" style="visibility:hidden;"></a>
+        <a href="" target="workspace" id="infomanager_a" style="visibility:hidden;"></a>
+        <a href="" target="workspace" id="right_a" style="visibility:hidden;"></a>
+        <a href="" target="workspace" id="table_a" style="visibility:hidden;"></a>
+        <a href="" target="workspace" id="self_a" style="visibility:hidden;"></a>
+        <a href="" target="workspace" id="exit_a" style="visibility:hidden;"></a>
+
+    </div>
+    <script>
+        function runto(id){
+            document.getElementById(id).click();
+        }
+    </script>
+</body>
+</html>
