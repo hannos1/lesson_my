@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form name="login">
+<div>
+    <label for="phone">手机</label>
+    <input type="text" name="phone" required placeholder="请输入手机号" />
+</div> 
+<div>
+    <button type="submit">提交</button>
+</div>
+</form>
+<script>
+    const oForm = document.forms["login"];
+    oForm.addEventListener('submit',function(event){
+        event.preventDefault();//阻止submit
+        const phone = oForm["phone"];
+        // console.log(phone.value);
+        if(!/1[\d]{10}/.test(phone.value)){
+            console.log('手机格式有误');
+            return ;
+        }
+    })
+</script>
+</body>
+</html>
