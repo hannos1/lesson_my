@@ -12,25 +12,21 @@
 </head>
 <body>
     <div class="container">
-        <div class="tablemask" style="top:8%;height: 140px;">
+        <div class="tablemask" id="console" style="top:8%;height: 140px;">
         <table class="table">
         <tr class="thead">
             <th>登录名称</th>
             <th>用户昵称</th>
-            <th>登录密码</th>
-            <th>确认密码</th>
             <th>联系方式</th>
             <th>操作</th>
         </tr>
         <tr class="tbody">
             <td><input type="text" style="border-radius:2px;border:2px;text-align:center;outline:none;height:20px;"></td>
-            <td><input type="text" style="border-radius:2px;border:2px;text-align:center;outline:none;height:20px;"></td>
-            <td><input type="password" style="border-radius:2px;border:2px;text-align:center;outline:none;height:20px;"></td>
-            <td><input type="password" style="border-radius:2px;border:2px;text-align:center;outline:none;height:20px;"></td>               
+            <td><input type="text" style="border-radius:2px;border:2px;text-align:center;outline:none;height:20px;"></td>              
             <td><input type="text" style="border-radius:2px;border:2px;text-align:center;outline:none;height:20px;"></td>
             <td>
-                <button class="update-btn">保存</button>
-                <button class="delete-btn">取消</button>
+                <button class="update-btn">查询</button>
+                <button class="delete-btn" onclick="cancel()">取消</button>
             </td>
         </tr>
         </table>
@@ -54,7 +50,7 @@
                 <td>**********</td>               
                 <td>${userView.roleCode}</td>
                 <td>
-                    <button class="update-btn">编辑</button>
+                    <button class="update-btn" onclick="edit()">编辑</button>
                     <button class="delete-btn">删除</button>
                 </td>
             </tr>
@@ -140,7 +136,13 @@
     </div>
 
     <script>
+        function cancel(){
+            document.getElementById("console").setAttribute("style","height:0");
+        }
 
+        function edit(){
+            document.getElementById("console").setAttribute("style","top:8%;height: 140px;")
+        }
 
     </script>
 </body>
