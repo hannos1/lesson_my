@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = {
+            name:'Cherry',
+            func1:function(){
+                console.log();
+            },
+            func2:function(){
+                // 在这里this指向a
+                // 作用域链
+                // let that = this;
+                setTimeout(()=>{
+                    // arrow function 没有this
+                    // this  关键字
+                    // that.func1();
+                    this.func1();
+                    console.log(this)
+                },1000)
+            }
+        }
+        a.func2();
+    </script>
+</body>
+</html>
