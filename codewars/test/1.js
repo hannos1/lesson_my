@@ -15,3 +15,8 @@ function findOdd(A) {
     if(dictionary[key] % 2 === 1)return key;
   }
 }
+
+
+let str = 'sjdlkf  ';
+console.log(str.indexOf(' '));
+
