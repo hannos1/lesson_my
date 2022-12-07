@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="msg">当前没有数据</p>
+    <ul id="list">
+
+    </ul>
+    <script>
+        // 有一个异步任务  耗时，再做某件事情， thenable
+        (function(){
+            let jsonobj = JSON.parse(localStorage.getItem("db")) || [];
+            const list = document.querySelector('#list');
+            //先取数据
+            //添加到ul 上
+            if(!jsonobj){
+                fetch('http://localhost:3000/posts')
+            // 等待异步任务
+            .then(res => res.json())
+            .then(res => {
+                    localStorage.setItem('db',JSON.stringify(res))
+                    jsonobj = JSON.parse(localStorage.getItem("db"))
+                    renderPosts(jsonobj)
+                    document.getElementById('msg').style.display = 'none';
+            })
+            }else{
+                renderPosts(jsonobj);
+                document.getElementById('msg').style.display = 'none';
+            }
+
+            function renderPosts(items){
+                items.forEach(item => {
+                    list.innerHTML += `
+                        <li>
+                            ${item.title}
+                        </li>
+                    `
+                })
+            }
+            
+            list.innerHTML += `
+                <li>
+                    文章一篇
+                </li>
+            ` // 同步的
+        })()
+    </script>
+</body>
+</html>

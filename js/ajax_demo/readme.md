@@ -7,17 +7,17 @@
         /student
         返回json 数据
 
--   npm init -y 将项目变成后端项目
+-   npm init -y 将项目变成后端项目  加入package.json
 
-    npm i json-server  加入package.json
+    npm i json-server  加一个package-lock和modules 等于 npm install json-server 下载json-server
 
     npm cache clean --force 清理缓存，报错时用
-
-    npm install json-server 下载json-server
 
     修改package.json脚本区,这里是直接绑定文件  "dev": "json-server --watch student.json"
 
     npm run dev  运行脚本
+
+    npm config set registry https://registry.npm.taobao.org 加快速度
 
 - form表单数据
     document.forms.addEventListener('submit',(event) => {}) 添加侦听事件 按钮要type="submit"

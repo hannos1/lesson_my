@@ -1,0 +1,15 @@
+{
+  "name": "async_await",
+  "version": "1.0.0",
+  "description": "- JS 为何而生?\r     响应用户的交互， 事件，简单\r     有必要设计成多线程吗？  JAVA C++\r     线程是程序运行的最小单元\r     JS 设计成单线程   优点是够简单   缺点是脆弱\r     同步代码尽快运行完  耗时的任务怎么办？",
+  "main": "index.js",
+  "scripts": {
+    "dev": "json-server --watch db.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.1"
+  }
+}

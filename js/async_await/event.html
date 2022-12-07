@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list">
+
+    </ul>
+    <button id="btn">按钮</button>
+    <script>
+        const  oBtn = document.getElementById('btn');
+        console.log(oBtn)
+        // event 事件订阅 监听  放入event loop
+        oBtn.addEventListener('click',function(){
+            console.log('btn');
+        })
+        console.log(1)
+        // for(let i=0;i<10000;i++){
+        //     console.log(1)
+        // }
+    </script>
+</body>
+</html>
