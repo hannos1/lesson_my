@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="description" content="标记  独一无二的  身份证号">
+</head>
+<body>
+    <script>
+        // const s = Symbol();  // 函数来申明  
+        // console.log(typeof s);
+        // const foo = Symbol('foo'); // 标签
+        // const bar = Symbol('foo');
+        // console.log(foo === bar);  // false
+
+        // const s1 = Symbol.for('foo');  // 查找唯一值Symbol.for   没找到的话会生成一个
+        // const s2 = Symbol.for('foo');
+        // console.log(s1 === s2,s1)  // true
+
+        // const foo = Symbol('foo');  // 申明了一个Symbol  独一无二的
+        // const s1 = Symbol.for('foo');   // 查找了Symbol
+        // const s2 = Symbol.for('foo');   
+        // const s3 = foo;
+        // console.log(s1 === s2, s2 === foo, s3, s3 == foo) // true   false   true
+
+        // 应用场景
+        const name = Symbol('name');
+        const obj = {
+            name:'龙',
+            [name]:'蔡总'
+        }
+        console.log(obj)
+
+        const speak = Symbol();
+        class Person{
+            // 公共方法
+            say(){
+                console.log('hello wrold');
+            }
+            [speak](){
+
+            }
+        }
+        const banbanLong = new Person();
+        banbanLong.say();
+    </script>
+</body>
+</html>

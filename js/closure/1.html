@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <div>
+            <label for="unDebounce">没有防抖的input</label>
+            <input type="text" id="unDebounce" placeholder="请输入关键字">
+        </div>
+    </div>
+
+
+    <script>
+        // 百度搜索  search suggest  
+        // 全局作用域  js 当前单线程的global  window  面向对象编程
+        let inputa = document.getElementById('unDebounce');// inputa的类型是object  
+
+        console.log(Object.prototype.toString.call(inputa))
+        inputa.addEventListener('keyup',function(e){
+            // console.log(Object.prototype.toString.call(e))
+            // console.log(e.key,e.keyCode)
+            // JS 主动拉取数据  fetch  ajax(XMLHttpRequest)
+            // 模块化 用户输入
+            // 频繁的事件
+            // ajax 函数是高阶函数 相对于普通函数
+            // 回调函数
+            ajax(e.target.value, (res) => {
+                console.log(res,'////')
+            });// 异步思想
+            // let res = ajax(e.target.value);//同步思想
+            // console.log(res,'????')
+            // console.log(e.target.value)
+        })
+        function ajax(keyword,cb){
+            // 耗时的异步 xhr  fetch  setTimeout...
+            // 去请求  通过http 协议再去后端去
+            // 数据格式json,最早是XML
+            const xhr = new XMLHttpRequest; // jser 前后端分离, 前端去拉取数据的核心对象
+            // GET  HTTP  Method
+            // URL
+            // JSON
+            console.log(Object.prototype.toString.call(xhr),xhr.readyState); // 0
+            xhr.open("GET","https://www.fastmock.site/mock/995214af813bc47208cf2fcb558907e6/mall/home/multidata")// 打开请求通道
+            console.log(xhr.readyState); // 1
+            xhr.send()// 发送请求
+            console.log(xhr.readyState); // 1
+            // DOM 0 
+            xhr.onreadystatechange = function(){
+                // 2 发送相应头  200  可以成功响应
+                // 3 响应已经包含部分数据  HTTP 分块传输
+                // 4 数据完全到达
+                console.log(xhr.readyState,'---------')
+                if(xhr.readyState == 4){
+                    // cb是一个回调函数  callback简写 
+                    cb(JSON.parse(xhr.responseText))
+                    // return JSON.parse(xhr.responseText)
+                }
+            }
+        }
+    </script>
+</body>
+</html>

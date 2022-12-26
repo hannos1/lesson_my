@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圣杯布局 语义化标签下的三栏式布局 SEO 搜索引擎优化</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            color:white;
+        }
+        header,footer{
+            height:50px;
+            background-color: blue;
+            line-height: 50px;
+        }
+        .wrapper{
+            padding: 0 100px;
+            overflow: hidden;
+        }
+        .col{
+            position: relative;
+            float: left;
+            height: 200px;
+        }
+        .main{
+            width: 100%;
+            background-color: green;
+        }
+        .left{
+            width:100px;
+            margin-left: -100%;
+            background-color: red;
+            left: -100px;
+        }
+        .right{
+            width:100px;
+            margin-left:-100px;
+            background-color:pink;
+            right:-100px;
+        }
+    </style>
+</head>
+<body>
+    <header>header</header>
+    <section class="wrapper">
+        <!-- 中间元素要放最左边 -->
+        <section class="col main">main</section>
+        <aside class="col left">left</aside>
+        <aside class="col right">right</aside>
+    </section>
+    <footer>footer</footer>
+    <script>
+        const isPhone = () => /iPhone|Android/i.test(navigator.userAgent)
+        //{
+            // const strAgent = navigator.userAgent;
+            // if(!strAgent.length){
+            //     return false;
+            // }
+            // if(/iPhone|Android/i.test(navigator.userAgent)){
+                
+            // }
+            // return false;
+        //}
+        console.log(isPhone())
+    </script>
+</body>
+</html>

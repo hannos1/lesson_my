@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const p1 = {
+            name:'龙',
+            age:17
+        }
+        function test(person){
+            // person作用域属于函数test
+            person.age = 26 // 直接修改之前的属性
+            person = {
+                name:'yyy',
+                age:30
+            }// 重新指向新地址 不会修改之前的属性
+            return person
+        }
+        // 
+        
+        console.log(test(p1));//age = 30 name = 'yyy'
+        console.log(p1);// age = 26  name = '龙'
+    </script>
+</body>
+</html>
