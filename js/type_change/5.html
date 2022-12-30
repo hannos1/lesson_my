@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// bind 实现依赖于 call
+// call apply  基于 对象的方法调用  this 指向对象   方法挂载到call 的第一个参数上 
+// 1. 参数对象被污染了
+    2. 
+// Object.prototype.my_call   污染
+// Function.prototype.my_call = function(context) { // 函数
+//     // 如何实现绑定新的this
+//     // this -> 函数
+//     // context -> this-》 函数在 运行的时候  this -> context 
+//     // context 一定是对象?
+//     // 严格性校验？ 
+
+//     context.fn = this //context['fn']=this
+//     // 如何在调用call时把调用call的函数也执行
+//     // 3. 参数  ... 
+//     // 4. 考虑返回值 
+//     // 5. 还原 delete  
+//     return context.fn() // 
+// }
+// reset 
+Function.prototype.my_call = function(context, ...args) {
+    if (typeof this !== 'function') {
+        throw new TypeError('error');
+    }
+    // 不传第一个参数的时候， window 默认
+    context = context || window;
+    // context.fn
+    // 新的数据类型  Symbol 
+    let fn = Symbol('fn'); // 唯一值
+    context[fn] = this; // nb 
+    const res = context[fn](...args); // 返回值
+    delete context[fn]
+    return res
+}
+
+let obj = {
+    name: 'aTao',
+    // fn: 1
+}
+var name = '梅梅';
+function foo() {
+    console.log(this.name);
+}
+foo.my_call();
+console.log(obj)
+</script>
+</body>
+</html>
