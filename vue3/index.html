@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue3</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <script>
+        // 尤雨溪
+        // 命名空间  
+        // 单例模式 根节点
+        Vue.createApp({
+            template:'<div>Hello World{{counter}}</div>',
+            data(){
+                return{
+                    counter: 1
+                }
+            },
+            // 组件挂载到app上后，可以看到页面后触发
+            mounted(){ // onLoad
+                console.log('页面加载完成后  自动执行')
+                setInterval(() => {
+                    // this.counter += 1
+                    // this.$data.counter += 1
+                },1000)
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
