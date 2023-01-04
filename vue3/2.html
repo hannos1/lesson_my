@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    const obj = {
+        // counter:42
+    }; // 数据监听api
+    //es5 api
+    // 定义一个属性  vue  2.0  react 早期版本 实现响应式的api
+    // value  
+    // 权限   可写 writeable   可枚举  enumerable   
+    Object.defineProperty(obj,'counter',{
+        value:42,
+        enumerable:true,
+        writable:true   // 是否允许修改
+    })
+    Object.defineProperty(obj,'msg',{
+        value:'世龙大佬',
+        enumerable:true,
+        writable:true   // 是否允许修改
+    })
+
+    // for(let key in obj){
+    //     console.log(key,obj[key])
+    // }
+
+    // Object.freeze(obj) // es6  冻结对象
+    // obj.counter = 1;
+    // console.log(obj.counter)
+
+    // 使用symbol绝对不会被覆盖  
+    obj[Symbol()] = '123';
+    for(let key in obj){
+        console.log(key,obj[key])
+    }
+    console.log(Object.getOwnPropertyNames(obj))
+    console.log(Object.getOwnPropertySymbols(obj))
+</script>
+</body>
+</html>
