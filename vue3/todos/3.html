@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        .done{
+            color:gray;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    {{title}}       <!-- 发现没有被解释 -->
+    <div id="app">
+        <div>{{title}}</div>
+        <!-- 带有修饰符的事件绑定 -->
+        <input type="text" v-model="title"  @keydown.enter="addTodo" placeholder="placeholder不会被绑定哦">
+        <ul>
+            <!-- <li v-for="(todo,index) in todos" :key="index">{{todo}}</li> -->
+            <li v-for="(todo,index) in todos" :key="index">
+                <input type="checkbox" v-model="todo.done">
+                <span :class="{done:todo.done}">{{todo.title}}</span>
+            </li>
+        </ul>
+        <div>
+            全选<input type="checkbox" v-model="allDone">
+            {{active}}
+            /
+            {{all}}
+        </div>
+        <button v-if="active < all" v-on:click="clear">清理</button>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return {
+                    title:'',
+                    todos:[
+                    // '脱单',
+                    // '去名企'
+                    {title:'脱单',done:false},
+                    {title:'去名企',done:false},
+                    {title:'吃点好的',done:true}
+                    ]
+                }
+            },
+            methods:{
+                clear(){
+                    console.log('111')
+                    // 数据驱动思想
+                    // 1. vue一开始就要切换成数据驱动思想
+                    // 2. focus 聚焦业务开发
+                    // this.todos = this.todos.filter(todo => !todo.done)
+                    this.todos = this.todos.filter(v => !v.done);
+                },
+                addTodo(){
+                    let todo = {
+                        title:this.title,
+                        done:false
+                    }
+                    // this.todos.push(this.title)
+                    this.todos.push(todo)
+                    this.title = ''
+                },
+            },
+            // 计算属性
+            computed:{
+                all(){
+                    return this.todos.length
+                },
+                active(){
+                    return this.todos.filter(todo => !todo.done).length
+                },
+                allDone:{
+                    get:function(){
+                        return this.active === 0
+                    },
+                    set:function(val){
+                        console.log(val,'/////')
+                        this.todos.forEach(todo => todo.done = val)
+                    }
+                }
+            }
+
+        })
+        app.mount('#app');
+    </script>
+</body>
+</html>

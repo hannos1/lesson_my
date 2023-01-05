@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>前端MVVM设计模式</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+<!-- 后端设计模式  MVC -->
+<!-- M model data() return{}
+V view template
+VM viewmodel  -->
+<div id="app"></div>
+<script>
+    const app = Vue.createApp({
+        // 在这里定义数据 也就是model数据
+        data(){
+            return{
+                title:'惊涛伟略',
+                msg:'test',
+                counter:1,
+                showTitle:true
+            }
+        },
+        // 定义了模板 也就是view
+        template:
+        `
+            <div>
+                <h1>{{msg}},点赞数{{counter}}</h1>
+                <button v-on:click="doStart">点赞+1</button>
+                <my-title :title="title" v-show="showTitle" />
+                <button v-on:click="toggleTitle">切换标题组件</button>
+            </div>
+        `,
+        // VM 自动关联， 由vue来做
+        methods:{
+            doStart(){
+                this.counter++;
+            },
+            toggleTitle(){
+                this.showTitle = !this.showTitle;
+            }
+        },
+        beforeCreate(){
+            // 初始化事件和生命周期注册
+            console.log('beforeCreate,创建完成前')
+        },
+        created(){
+            // {{}} 响应式
+            console.log('created,已经创建完成，内存')
+        },
+        // 生命周期钩子函数  自动执行
+        mounted(){
+            // 是真实DOM  innerHTML +=   appedChild
+            console.log('mounted,组件挂载了...');
+            setTimeout(() => {
+                this.title = '新标题'
+            }, 2000);
+        },
+        beforeMount(){
+            // template -> dom string
+            console.log('before mount,挂载开始前')
+        },
+        updated(){
+            console.log('已完成更新')
+            console.log(document.getElementById('app').innerHTML)
+        },
+        beforeUpdate(){
+            console.log('更新开始前')
+            console.log(document.getElementById('app').innerHTML)
+        },
+        beforeUnmount(){
+            console.log('beforeUnMount')
+            console.log(document.getElementById('app').innerHTML)
+        },
+        unmounted(){
+            console.log('unmounted')
+            console.log(document.getElementById('app').innerHTML)
+        }
+        
+    })
+    app.component('my-title',{
+        props:['title'],
+        template:`<h1>{{title}}</h1>`,
+        created(){
+            console.log('my-title 组件创建了')
+        },
+        beforeCreate(){
+            console.log('my-title,创建完成前')
+        },
+        mounted(){
+            console.log('my-title 组件挂载完成')
+        },
+        updated(){
+            console.log('my-title 组件更新了')
+        },
+        unmounted(){
+            console.log('my-title 组件卸载了')
+        }
+    });
+    const vm = app.mount('#app');  // 根组件
+
+</script>
+</body>
+</html>
