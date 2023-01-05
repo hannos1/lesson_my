@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <a href="http://127.0.0.1:5555/js/router/">首页</a>
+        <a href="a.html">a页面</a>
+        <a href="b.html">b页面</a>
+    </header>
+    <main><div>首页</div></main>
+    <script>
+        const links = document.querySelectorAll('a')
+        for(let link of links){
+            link.addEventListener('click',function(event){
+                event.preventDefault();
+                const href = event.target.href
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET',href);
+                xhr.send();
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState == 4){
+                        let domStr = xhr.responseText;
+                        // console.log(xhr.responseText)
+                        // /<main>(.+)<\/main>/.test(domStr)
+                        // console.log(domStr.match(/<main>[\s\S]*?<\/main>/))
+                        let content = domStr.match(/<main>[\s\S]*?<\/main>/g)[0];
+                        content = content.replace('<main>','');
+                        content = content.replace('</main>','');
+                        document.querySelector('main').innerHTML = content;
+                    }
+                }
+            })
+        }
+    </script>
+</body>
+</html>
