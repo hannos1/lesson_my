@@ -1,6 +1,9 @@
 # vue3 写商城
 - 简历需要
-- 完整的vue 全家桶
+
+- 工程化
+    .vue    style  lang="stylus"  css  工程  stylus | less
+    stylus  ->  vite  ->  npm i stylus  -> css  -> 页面上的css
 
 - 商城应用npm包
     - vant  移动商城
@@ -13,6 +16,20 @@
         - assets  静态资源目录
             css image
             main.css  base.css  @import 模块化
+        - views  页面级别组件
+        - common  文件夹
+            通用，和具体业务无关，可以在任何页面，任何项目
+            style 通用样式
+                - minxin.styl
+                    专门放通用的混合函数的地方
+        - service  api
+            定义接口的地方 方便统一管理  
+            每个页面的接口一个文件
+
+- 异步解决方案
+    - promise  es6  pending  ->  fullfiled
+    - 同步化  异步流程难控制
+    - es8  async + await  多个异步任务要同步化的时候  thenable  要简化
 
 - 全家桶
     - vue-router
@@ -35,6 +52,16 @@
         写了也没问题
     - 表达父子元素  css 模块
         缩进  自动加上父元素的限定
+    - 混合mixin
+        形式上是函数
+        封装某个功能样式的集合
+        混合到调用它地方
+    - 申明变量
+    - scoped
+        防止css 类名冲突
+        给组件加data-v-hash唯一值
+        选择器加上属性选择器
+
 
 - main.js 入口文件 
     - 完整的vue全家桶
