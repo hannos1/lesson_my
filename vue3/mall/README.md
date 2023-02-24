@@ -1,13 +1,35 @@
 # vue3 写商城
 - 简历需要
 
+- vue3 语法
+    - 过滤器 filters  main.js.config.globalProperties.$filters 
+        computed data -> 计算
+        格式转换 进制转换 汇率 语言
+        入口可以配置多个过滤器
+        app.config.globalProperties.$filters={
+            prefix(url){
+                if()...
+            }
+        }
+
+- 设计模式
+    DRY  Dont repeat yourself
+
 - 工程化
     .vue    style  lang="stylus"  css  工程  stylus | less
     stylus  ->  vite  ->  npm i stylus  -> css  -> 页面上的css
+    vite.config.js  vite  配置文件  工程化定制
+
+- 工程化思想
+    state  状态对象，响应式  数据驱动界面
+    常规的组件数据都放到state中，由reactive({...})构成
+    子组件相对父组件产生数据依赖 热更新
+    components 组件 有利于 页面级别组件或者大组件更好维护， template更简洁
 
 - 商城应用npm包
     - vant  移动商城
     - lib-flexible  移动端屏幕适配库  rem
+        组件会自动让根节点的font-size = 屏幕宽度/10 = 1rem  容器相对于屏幕的百分比除以10%如(5px/375px)/0.1 = 宽度/37.5
     - vue-router  路由
 
 - 架构（目录的意义）
@@ -61,6 +83,8 @@
         防止css 类名冲突
         给组件加data-v-hash唯一值
         选择器加上属性选择器
+    - &.active
+        & 引用上一级选择器
 
 
 - main.js 入口文件 
@@ -87,3 +111,20 @@
             第三方框架  lib-flexible
             Mobile First  80%
             PC  工作  管理  后台
+
+
+
+- axios
+    - 会返回response对象，更专业 包含各种数据项
+    - 拦截器 interceptors 
+        axios request / response 
+        return res.data 
+
+- 骨架屏方案 用户体验优化
+    skeleton  vant 
+    <van-skeleton :row="3" :loading="state.loading" >
+        template 在loading为true时显示出来
+    </van-skeleton>
+
+
+

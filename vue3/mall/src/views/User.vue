@@ -1,6 +1,6 @@
 <template>
     <div>
-        Category
+        user
         <nav-bar></nav-bar>
     </div>
 </template>

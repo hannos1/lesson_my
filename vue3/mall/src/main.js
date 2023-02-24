@@ -1,7 +1,9 @@
 import { createApp } from 'vue'
 // import './style.css'
 import {
-    Swipe
+    Swipe,
+    SwipeItem,
+    Skeleton
 } from 'vant'
 import 'vant/lib/index.css'
 import App from './App.vue'
@@ -18,5 +20,23 @@ app
     .use(Swipe)  // 
     // .use()
     .use(router) // SPA
+    .use(SwipeItem)
+    .use(Skeleton)
+
+// 过滤器
+app
+    .config
+    .globalProperties
+    .$filters = {
+        prefix(url){
+            if (url && url.startsWith('http')) {
+                return url
+            } else {
+            url = `http://backend-api-01.newbee.ltd${url}`
+                return url
+            }
+        }
+    }
+
 app
     .mount('#app')

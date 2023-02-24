@@ -1,12 +1,10 @@
 <template>
     <div>
-        Category
-        <nav-bar></nav-bar>
+        Login
     </div>
 </template>
 
 <script setup>
-import NavBar from '~/NavBar.vue'
 
 </script>
 
