@@ -1,6 +1,6 @@
 <template>
     <div class="goods-item">
-        <img :src="$filters.prefix(props.goods.goodsCoverImg)" alt="">
+        <img v-lazy="$filters.prefix(props.goods.goodsCoverImg)" alt="">
         <div class="goods-desc">
             <div class="title">{{props.goods.goodsName}}</div>
             <div class="price">￥{{props.goods.sellingPrice}}</div>

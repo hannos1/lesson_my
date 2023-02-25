@@ -26,6 +26,7 @@
                     <goods-item
                         v-for="item in state.newGoodses" 
                         :key="item.goodsId"
+                        @click="gotoDetail(item.goodsId)"
                         :goods="item"/>
                 </div>
             </van-skeleton>
@@ -37,6 +38,7 @@
                     <goods-item
                         v-for="item in state.hotGoodses" 
                         :key="item.goodsId"
+                        @click="gotoDetail(item.goodsId)"
                         :goods="item"/>
                 </div>
             </van-skeleton>
@@ -48,6 +50,7 @@
                    <goods-item
                         v-for="item in state.recommendGoodses" 
                         :key="item.goodsId"
+                        @click="gotoDetail(item.goodsId)"
                         :goods="item"/>
                 </div>
             </van-skeleton>
@@ -59,11 +62,14 @@
 <script setup>
 // import SubHeader from '../components/SubHeader.vue'
 import { onMounted,reactive } from 'vue'
+import {useRouter} from 'vue-router'
 import { getHomeData } from '../service/home'
 import { showLoadingToast,closeToast } from 'vant'
 import NavBar from '~/NavBar.vue'
 import swiper from '~/Swiper.vue'
 import GoodsItem from '~/GoodsItem.vue'
+
+const router = useRouter()  // 把全局的路由对象给我们
 // 挂载后再发送api请求 提升性能  不会去争抢挂载显示
 const state = reactive({
     swiperList:[],
@@ -115,6 +121,14 @@ const state = reactive({
   ],
     newGoodses:[]
 })
+
+const gotoDetail = (id) => {
+    router.push({
+        path:`/detail/${id}`
+    })
+    // console.log(id,'gotoDetail');
+}
+
 onMounted(async () => {
     showLoadingToast({
         message:'加载中...',
@@ -134,8 +148,10 @@ onMounted(async () => {
 <style lang="stylus" scoped>
 @import "../common/style/mixin";
 // wh 可以一次性设置width height  的mixin混合
+#home-wrapper
+    padding-bottom 2rem
 .home-header
-    position absolute
+    position fixed
     top 0
     left 0    
     line-height 1.33333rem

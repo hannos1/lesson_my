@@ -3,9 +3,10 @@ import { createApp } from 'vue'
 import {
     Swipe,
     SwipeItem,
-    Skeleton
+    Skeleton,
+    Lazyload
 } from 'vant'
-import 'vant/lib/index.css'
+import 'vant/lib/index.css'  //有赞样式库
 import App from './App.vue'
 import 'lib-flexible/flexible' 
 import './assets/main.css'
@@ -22,6 +23,7 @@ app
     .use(router) // SPA
     .use(SwipeItem)
     .use(Skeleton)
+    .use(Lazyload)
 
 // 过滤器
 app
