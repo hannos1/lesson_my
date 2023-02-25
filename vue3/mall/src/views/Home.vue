@@ -135,7 +135,7 @@ onMounted(async () => {
         forbidClick:true
     })
     const {data} = await getHomeData() // await promise
-    console.log(data)
+    // console.log(data)
     state.swiperList = data.carousels
     state.newGoodses = data.newGoodses
     state.hotGoodses = data.hotGoodses

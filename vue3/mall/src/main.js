@@ -4,7 +4,10 @@ import {
     Swipe,
     SwipeItem,
     Skeleton,
-    Lazyload
+    Lazyload,
+    ActionBar,
+    ActionBarIcon,
+    ActionBarButton
 } from 'vant'
 import 'vant/lib/index.css'  //有赞样式库
 import App from './App.vue'
@@ -24,6 +27,9 @@ app
     .use(SwipeItem)
     .use(Skeleton)
     .use(Lazyload)
+    .use(ActionBar)
+    .use(ActionBarIcon)
+    .use(ActionBarButton)
 
 // 过滤器
 app
