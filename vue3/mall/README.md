@@ -20,11 +20,20 @@
     stylus  ->  vite  ->  npm i stylus  -> css  -> 页面上的css
     vite.config.js  vite  配置文件  工程化定制
 
-- 工程化思想
+- 组件化思想
     state  状态对象，响应式  数据驱动界面
     常规的组件数据都放到state中，由reactive({...})构成
     子组件相对父组件产生数据依赖 热更新
     components 组件 有利于 页面级别组件或者大组件更好维护， template更简洁
+    - simple-header  常用组件复用
+    - 子组件传参
+        const props = defineProps({
+            goods: {
+                type: Object,
+                value: {}  默认值，提升组件适配性
+            }
+        })
+        页面引入时如果用  :goods那么这个值保留js运行区域源格式 否则会变成string 如goods
 
 - 商城应用npm包
     - vant  移动商城
@@ -128,3 +137,39 @@
 
 
 
+- 图片懒加载
+    - html 文件中 link src img script 启动新的http请求
+        请求并发数  越多  页面加载就越慢
+    - 可视区内图片加载
+    - 非可视区延迟加载，可视区滚动到哪里加载相应图片
+    - vant 内置了Lazyload
+        vue directives 指令集  自定义指令集 v-lazyload
+        命令组件或标签做相应的事情
+    - base64 vant使用了更小的占位图片  可以放到css，js文件中 减少并发数
+
+- vue-router 细节考点
+    - 懒加载
+    - router-link  激活路由
+        .router-link-active
+    - 路由的跳转
+        - 全局对象Router vue-router  useRouter() 组件里随时拿到
+            push  go  currentRoute
+        - 当前路由  Router.currentRoute()
+            useRoute() 当前路由对象
+            route.params
+        - useRoute()  使用一下  hooks 编程
+            use开头的函数的称呼
+    - 路由切换动画
+        vue transition
+        slide-left  slide-right
+        首页 -> detail
+        transition  由右向左  <transition> vue内置组件
+        v-if v-show  router-view  挂载节点时 transition会自动添加.v-enter-active  类名钩子  不用:class来设置了
+        .v-enter-active{
+            定制能力很高
+        }
+        卸载时 自动添加 v-leave-active类名钩子
+        transiton组件可以添加name属性指定不同的效果
+
+- 内置组件component
+    - <component :is="Component" /> 动态绑定组件 通过is值来决定哪个组件在这里被渲染 
