@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 // import './style.css'
+import { createPinia }  from 'pinia'
 import {
     Swipe,
     SwipeItem,
@@ -7,7 +8,11 @@ import {
     Lazyload,
     ActionBar,
     ActionBarIcon,
-    ActionBarButton
+    ActionBarButton,
+    Form,
+    Field,
+    Button,
+    Icon
 } from 'vant'
 import 'vant/lib/index.css'  //有赞样式库
 import App from './App.vue'
@@ -30,7 +35,11 @@ app
     .use(ActionBar)
     .use(ActionBarIcon)
     .use(ActionBarButton)
-
+    .use(Form)
+    .use(Field)
+    .use(Button)
+    .use(createPinia())
+    .use(Icon)
 // 过滤器
 app
     .config

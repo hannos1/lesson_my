@@ -34,7 +34,7 @@ const router = createRouter({
             path:'/login',
             name:'login',
             meta:{
-                index:3
+                index:1
             },
             component:() => import('@/views/Login.vue')
         },{
@@ -48,7 +48,8 @@ const router = createRouter({
             path:'/user',
             name:'user',
             meta:{
-                index:1
+                index:1,
+                needLogin:true // 表示需要登录才能访问的页面
             },
             component:() => import('@/views/User.vue')
         },

@@ -50,12 +50,16 @@
         - views  页面级别组件
         - common  文件夹
             通用，和具体业务无关，可以在任何页面，任何项目
-            style 通用样式
+            - style 通用样式
                 - minxin.styl
                     专门放通用的混合函数的地方
+            - js 
+                封装的常用工具函数
         - service  api
             定义接口的地方 方便统一管理  
             每个页面的接口一个文件
+        - store 
+            数据仓库 pinia 全局数据的存放地点
 
 - 异步解决方案
     - promise  es6  pending  ->  fullfiled
@@ -72,6 +76,7 @@
                 没有直接给浏览器响应 
                 给浏览器发送了一个跳转指令
                 再次发出请求  '/home'
+    - vuex  /  pinia
 
 - stylus
     css 全新写法， 写起来更快， 很多高级功能
@@ -193,3 +198,36 @@
         v-html  负责安全性  
     5. vant的底部购物组件套装
         badge 徽章  跨页面共享状态  vuex
+
+- 登录注册功能
+    - 鉴权
+    - 登录 注册  两个功能  合并为一个页面
+    - 验证码功能
+        - 防止机器作弊
+        - canvas返回imgCode
+            state.imgCode
+        - onSubmit
+            用户填的验证码 和 组件的state.imgCode比较
+            登录组件里找验证码组件用ref
+
+- nextTick
+    响应式数据的修改很快
+    但是页面的热更新需要时间
+    - 首页scroll 改变导航栏效果 
+        - nextTick
+            不止是组件挂载，state更新模板也完成了
+            window.addEventListener('scroll') 就不会争抢
+        - scrollTop
+            window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+        - :class {}  类名动态绑定
+        - loadsh throttle  节流
+
+- 如何跨组件共享数据
+    - 登录状态 
+    - 购物车徽章
+    这个状态跟reactive封装的不一样
+    使用vuex来解决
+    - 步骤 
+        main.js 挂载  createPinia
+        新建仓库 store  defineStore
+    - 可以用路由守卫在页面跳转前判断是否登录，如果没登录就踢到登录页

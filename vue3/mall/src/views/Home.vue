@@ -1,6 +1,6 @@
 <template>
     <div id="home-wrapper">
-        <header class="home-header wrap">
+        <header class="home-header wrap" :class="{'active': state.headerScroll}">
             <router-link to="/category">
                 <i class="nbicon nbmenu2"></i>
             </router-link>
@@ -61,17 +61,19 @@
 
 <script setup>
 // import SubHeader from '../components/SubHeader.vue'
-import { onMounted,reactive } from 'vue'
+import { onMounted,reactive,nextTick } from 'vue'
 import {useRouter} from 'vue-router'
 import { getHomeData } from '../service/home'
 import { showLoadingToast,closeToast } from 'vant'
 import NavBar from '~/NavBar.vue'
 import swiper from '~/Swiper.vue'
 import GoodsItem from '~/GoodsItem.vue'
+import _ from 'lodash'  // npm i lodash
 
 const router = useRouter()  // 把全局的路由对象给我们
 // 挂载后再发送api请求 提升性能  不会去争抢挂载显示
 const state = reactive({
+    headerScroll:false,
     swiperList:[],
     loading:true,
     hotGoodses:[],
@@ -138,10 +140,25 @@ onMounted(async () => {
     // console.log(data)
     state.swiperList = data.carousels
     state.newGoodses = data.newGoodses
+    // console.log(document.querySelector('.goods-box'),'onMounted');
+    // nextTick(() => {
+    //     console.log(document.querySelector('.goods-box'),'onMounted')
+    // })
     state.hotGoodses = data.hotGoodses
     state.recommendGoodses = data.recommendGoodses
     state.loading = false
     closeToast()
+})
+
+nextTick(() => {
+    const setHeaderScroll = () => {
+        // console.log('scroll')
+        // 滚动距离的api
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+        // console.log(scrollTop)
+        scrollTop > 100 ? state.headerScroll = true : state.headerScroll = false;
+    }
+    window.addEventListener('scroll',_.throttle(setHeaderScroll,200))
 })
 </script>
 
@@ -163,6 +180,12 @@ onMounted(async () => {
     fj()
     .nbmenu2
         color $primary
+    &.active
+        background $primary
+        .nbmenu2
+            color #fff
+        .login
+            color #fff
     .header-search 
         display flex
         width 74%

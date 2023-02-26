@@ -1,11 +1,21 @@
 <script setup>
 import {reactive} from 'vue'
 import {useRouter} from 'vue-router'  // hooks
+import { onMounted } from 'vue'
+
+
+import { useCartStore } from '@/store/cart.js'
+const cart = useCartStore();
+console.log(cart.count);
+const { updateCount } = cart;
+onMounted(() => {
+    updateCount()
+})
 
 const router = useRouter()
 // 在路由跳转前触发
 // 路由守卫
-router.beforeEach((to,from) => {
+router.beforeEach((to,from,next) => {  // next是下一步去哪里
   // console.log(from,to,'..')
   if(to.meta.index > from.meta.index){
     // 上级页面去子页
@@ -16,6 +26,9 @@ router.beforeEach((to,from) => {
   }else{
     state.transitionName = ''
   }
+  // console.log(next)
+  // next({path:'/home'})
+  next() // 没有这个东西会白屏
 })
 const state = reactive({
   transitionName:'slide-left'
