@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="container"></ul>
+    <script>
+        let ul = document.getElementById('container')
+        let total = 100000;
+        let once = 20;// 一次20条 进入idle的机会多   滚轮带来的页面绘制很快就能完成
+        // 总花销时间并没有变长
+        let page = total/once //时间切片次数
+        let index = 0;
+        function loop(curTotal,curIndex){
+            if(curTotal <= 0){
+                return false
+            }
+            let pageCount = Math.min(curTotal,once)
+            setTimeout(() => { // 宏任务
+                for(let i = 0;i < pageCount;i++){
+                    let li = document.createElement('li')
+                    li.innerText = curIndex + i + ':' + ~~(Math.random()*total)
+                    ul.appendChild(li)
+                }
+                loop(curTotal - pageCount,curIndex + pageCount)
+            },0)
+        }
+        loop(total,index)
+    </script>
+</body>
+</html>
