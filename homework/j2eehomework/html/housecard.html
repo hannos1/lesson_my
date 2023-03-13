@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./common.css">
+    <link rel="stylesheet" href="./workspace.css">
+    <link rel="stylesheet" href="./tablelist1.css">
+    <link rel="stylesheet" href="./card.css">
+    <script>
+        JSON.stringify()
+    </script>
+</head>
+<body>
+
+    <div class="container" style="overflow: scroll;">
+    <div class="informationChange" id="IC" style=" width: 1000px;height:245px;top:20px;">
+        <div id="bartitle" style="width:100%;height:20px;font-size:16px;color:white;text-align:center;font-weight:border;">信息查询</div>
+        <div style="width:100%;background-color: #c8c8c8;display:inline-block;">
+            <!-- <span class="topspan">注册编码：</span>
+            <input type="text" style="border-radius:2px;border:2px;text-align:center;outline:none;height:20px;width:200px;" id="type"> -->
+            <!-- <span class="topspan">房源标题：</span>
+            <input type="text" style="border-radius:2px;border:2px;text-align:center;outline:none;height:20px;width:600px;" id="title"> -->
+             <div class="line">
+            <span class="topspan">区域：</span>
+             <!-- <input type="number" style="border-radius:2px;border:2px;outline:none;height:20px;width:25px;" id="shi"> -->
+             <input type="radio" name="region" id="" value="0" />  不限
+             <input type="radio" name="region" id="" value="1" />  九里象湖城
+             <input type="radio" name="region" id="" value="2" />  城开国际学院
+             <input type="radio" name="region" id="" value="3" />  朝阳小区
+             <input type="radio" name="region" id="" value="4" />  广润门
+             <input type="radio" name="region" id="" value="5" />  洪都
+            </div>
+            <div class="line">
+                <span class="topspan">房型：</span>
+                <!-- <input type="number" style="border-radius:2px;border:2px;outline:none;height:20px;width:25px;" id="shi"> -->
+                <input type="radio" name="type" id="" value="0" />  不限
+                <input type="radio" name="type" id="" value="1" />  一室
+                <input type="radio" name="type" id="" value="2" />  二室
+                <input type="radio" name="type" id="" value="3" />  三室
+                <input type="radio" name="type" id="" value="4" />  四室
+                <input type="radio" name="type" id="" value="5" />  五室
+                <input type="radio" name="type" id="" value="6" />  五室及以上室
+            </div>
+            <div class="line">
+                <span class="topspan">面积：</span>
+                <!-- <input type="number" style="border-radius:2px;border:2px;outline:none;height:20px;width:25px;" id="shi"> -->
+                <input type="radio" name="area" id="" value="0" />  不限
+                <input type="radio" name="area" id="" value="1" />  50m²以下
+                <input type="radio" name="area" id="" value="2" />  50-70m²
+                <input type="radio" name="area" id="" value="3" />  70-90m²
+                <input type="radio" name="area" id="" value="4" />  90-110m²
+                <input type="radio" name="area" id="" value="5" />  110-130m²
+                <input type="radio" name="area" id="" value="6" />  130-150m²
+                <input type="radio" name="area" id="" value="7" />  150-200m²
+                <input type="radio" name="area" id="" value="8" />  200m²以上
+            </div>
+            <div class="line">
+                <span class="topspan">朝向：</span>
+                <!-- <input type="number" style="border-radius:2px;border:2px;outline:none;height:20px;width:25px;" id="shi"> -->
+                <input type="radio" name="toward" id="" value="0" />  不限
+                <input type="radio" name="toward" id="" value="1" />  东
+                <input type="radio" name="toward" id="" value="2" />  南
+                <input type="radio" name="toward" id="" value="3" />  西
+                <input type="radio" name="toward" id="" value="4" />  北
+                <input type="radio" name="toward" id="" value="5" />  南北
+                <input type="radio" name="toward" id="" value="6" />  东西
+                <input type="radio" name="toward" id="" value="7" />  东南
+                <input type="radio" name="toward" id="" value="8" />  西南
+                <input type="radio" name="toward" id="" value="9" />  东北
+                <input type="radio" name="toward" id="" value="10" />  西北
+            </select>
+            </div>
+            <div class="more">
+            <span class="topspan">建造年份：</span>
+            <input type="number" style="text-align:center;border-radius:2px;border:2px;outline:none;height:20px;width:70px;" id="year1">
+            <span class="partition">-</span>
+            <input type="number" style="text-align:center;border-radius:2px;border:2px;outline:none;height:20px;width:70px;" id="year2">
+            <span>年</span>
+            <span class="partition">|</span>
+            <span class="topspan">楼层：</span>
+            <input type="number" style="text-align:center;border-radius:2px;border:2px;outline:none;height:20px;width:70px;" id="lou">
+            <span class="topspan">总楼层：</span>
+            <input type="number" style="text-align:center;border-radius:2px;border:2px;outline:none;height:20px;width:70px;" id="zlou">
+            <span class="partition">|</span>
+            <span class="topspan">价格：</span>
+             <input type="number" step="0.1" style="text-align:center;border-radius:2px;border:2px;outline:none;height:20px;width:70px;" id="money1">
+             <span class="partition">-</span>
+             <input type="number" step="0.1" style="text-align:center;border-radius:2px;border:2px;outline:none;height:20px;width:70px;" id="money2">
+             <span>万元</span>
+             <span class="partition"></span>
+             <span class="topspan">装修：</span>
+             <select name="" id="qu" style="outline:none;border-radius:5px;width:60px">
+                        <option value="1">不限</option>
+                        <option value="2">东</option>
+                        <option value="3">南</option>
+                        <option value="4">西</option>
+                        <option value="5">北</option>
+                        <option value="6">东南</option>
+                        <option value="7">东北</option>
+                        <option value="8">西南</option>
+                        <option value="9">西北</option>
+            </select>
+            <span class="partition">|</span>
+            <span class="topspan">物业：</span>
+             <select name="" id="wuye" style="outline:none;border-radius:5px;width:60px">
+                        <option value="1">不限</option>
+                        <option value="2">东</option>
+                        <option value="3">南</option>
+                        <option value="4">西</option>
+                        <option value="5">北</option>
+                        <option value="6">东南</option>
+                        <option value="7">东北</option>
+                        <option value="8">西南</option>
+                        <option value="9">西北</option>
+            </select>
+            <span class="partition">|</span>
+            <span class="topspan">产权：</span>
+             <select name="" id="chanquan" style="outline:none;border-radius:5px;width:100px">
+                        <option value="1">不限</option>
+                        <option value="2">东</option>
+                        <option value="3">南</option>
+                        <option value="4">西</option>
+                        <option value="5">北</option>
+                        <option value="6">东南</option>
+                        <option value="7">东北</option>
+                        <option value="8">西南</option>
+                        <option value="9">西北</option>
+            </select>
+            <span class="partition">|</span>
+            <span class="topspan">状态：</span>
+             <select name="" id="zt" style="outline:none;border-radius:5px;width:60px">
+                        <option value="1">不限</option>
+                        <option value="2">东</option>
+                        <option value="3">南</option>
+                        <option value="4">西</option>
+                        <option value="5">北</option>
+                        <option value="6">东南</option>
+                        <option value="7">东北</option>
+                        <option value="8">西南</option>
+                        <option value="9">西北</option>
+            </select>
+        </div>
+        </div>
+        
+        
+        <div style="margin-top:5px;">
+            <button class="delete-btn" style="float:right" onclick="divClose()" >取消</button> 
+            <!-- <button class="update-btn" id="add" style="float:right;" onclick="" >添加</button>
+            <button class="delete-btn" id="save" style="float:right;" onclick="" >保存</button> -->
+            <button class="delete-btn" id="search" style="float:right;" onclick="" >查询</button>
+        </div>
+    </div>
+     <!-- <a href="${basePath}/welcome/photo" target="workspace" id="photo_a" style="visibility:hidden;"></a> -->
+
+    <div class="card">
+        <!-- <div class="item" style="width:100%;height:500px;margin-bottom:50px;"></div> -->
+        <div class="houses">
+            <div class="img" style="background-image:url(./backgroundimg.jpg);"></div>
+            <div class="houseinfo">
+                <div class="infotitle">
+                    <span class="housetitle">wfwofjowjfowifjeowiejfiwjfeoiwjfoiwjfeiowjfeoijwf</span>
+                </div>
+                <div class="price">
+                    <span class="pricespan">xxxxx万元</span>
+                    <span class="allpricespan">单位房价xxxxxx</span>
+                </div>
+                <table class="infotable">
+                    <tr class="infotbody">
+                        <td>${userView.id}</td>
+                        <td>${userView.username}</td>
+                        <td>${userView.caption}</td>
+                        <td>**********</td>               
+                        <td>${userView.roleCode}</td>
+                    </tr>
+                    <tr class="infotbody">
+                        <td>${userView.id}</td>
+                        <td>${userView.username}</td>
+                        <td>${userView.caption}</td>
+                        <td>**********</td>               
+                        <td><button class="delete-btn" style="width:auto;color:rgb(224, 187, 85);font-weight:700;" onclick="divClose()" >更多图片</button> </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+
+    </div>
+
+</div>
+</body>
+</html>

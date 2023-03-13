@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人机交互第1次作业</title>
+    <style>
+        body,html{
+            margin: 0;
+            padding: 0;
+            display: fixed;
+        }
+        header{
+            width: 100vw;
+            height: 158px;
+            /* background-color: blue; */
+            display: flex;
+            flex-direction: column;
+        }
+        .navigateBar{
+            height: 52px;
+            background-color: #fff;
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+        }
+
+        .imgbox{
+            width: 36px;
+            height: 36px;
+            overflow: hidden;
+            margin-left: 10px;
+        }
+
+        .imgbox > img{
+            width: 160px;
+            height: 36px;
+        }
+
+        .navigateBar_searchbox{
+            width: 200px;
+            height: 26px;
+            border: 1px solid rgb(139, 85, 85);
+            border-radius: 10px;
+            margin-left: 40px;
+            display: flex;
+            align-items: center;
+            background-color: #c4bfbf;
+        }
+
+        .navigateBar_searchbox__img{
+            background-image: url('https://www.jxufe.edu.cn/statics/jxufe/ceshi/images/graph.png');
+            background-size: cover;
+            width: 24px;
+            height: 24px;
+            margin-left: 5px;
+            background-position: -50%;
+        }
+
+        .navigateBar_searchbox__label{
+            height: 24px;
+            margin-left: 10px;
+            line-height: 24px;
+            font-size: 14px;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .swiperImg{
+            flex:1;
+            background-image: url('http://www.jxufe.edu.cn/uploadfile/82/Attachment/9a36347ce9.png');
+            background-size: cover;
+            background-position:-50%;
+        }
+
+
+        .body_content{
+            width: calc(100vw - 5px);
+            height: 446px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: space-around;
+            margin: 0 auto;
+            margin-top:8px;
+        }
+
+        .body_item{
+            /* background-color: #70b3e9; */
+            background-color: #08AEEA;
+            background-image: linear-gradient(90deg, #93b5c2 0%, #289c68 100%);
+            width: 180px;
+            height: 92px;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .body_item > img{
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            color:white;
+            /* background-color:red; */
+            background-size: cover;
+            background-position:-50%;
+            margin-top: 14px;
+        }
+
+        .body_item__label{
+            color: white;
+            margin-top: 2px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .tabBar{
+            width: 100vw;
+            height: 54px;
+            background-color: rgb(147, 220, 213);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .tabBar > img{
+            display: inline-block;
+            height:40px;
+            width: 40px;
+            background-size: cover;
+            background-position:-50%;
+            border-radius: 50%;
+            box-shadow: 2px 2px 2px black;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navigateBar">
+            <div class="imgbox">
+                <img src="https://www.jxufe.edu.cn/statics/jxufe/ceshi/images/logoliu.png" alt="">
+            </div>
+            <div class="navigateBar_searchbox">
+                <div class="navigateBar_searchbox__img"></div>
+                <div class="navigateBar_searchbox__label">搜索</div>
+            </div>
+        </div>
+        <div class="swiperImg"></div>
+    </header>
+    <main>
+        <aside></aside>
+        <main class="body_content">
+            <div class="body_item">
+                <img src="http://lib.jxufe.edu.cn/sites/all/themes/jxcdlib/images/link-item-1.svg" alt="">
+                <div class="body_item__label">书架</div>
+            </div>
+            <div class="body_item">
+                <img src="http://lib.jxufe.edu.cn/sites/all/themes/jxcdlib/images/link-item-12.svg" alt="">
+                <div class="body_item__label">公告信息</div>
+            </div>
+            <div class="body_item">
+                <img src="http://lib.jxufe.edu.cn/sites/all/themes/jxcdlib/images/link-item-11.svg" alt="">
+                <div class="body_item__label">新生专栏</div>
+            </div>
+            <div class="body_item">
+                <img src="http://lib.jxufe.edu.cn/sites/all/themes/jxcdlib/images/link-item-3.svg" alt="">
+                <div class="body_item__label">借阅信息</div>
+            </div>
+            <div class="body_item">
+                <img src="http://lib.jxufe.edu.cn/sites/all/themes/jxcdlib/images/link-item-5.svg" alt="">
+                <div class="body_item__label">照片打印</div>
+            </div>
+            <div class="body_item">
+                <img src="http://lib.jxufe.edu.cn/sites/all/themes/jxcdlib/images/link-item-6.svg" alt="">
+                <div class="body_item__label">报纸</div>
+            </div>
+            <div class="body_item">
+                <img src="http://lib.jxufe.edu.cn/sites/all/themes/jxcdlib/images/link-item-8.svg" alt="">
+                <div class="body_item__label">有声读物</div>
+            </div>
+            <div class="body_item">
+                <img src="http://lib.jxufe.edu.cn/sites/all/themes/jxcdlib/images/link-item-10.svg" alt="">
+                <div class="body_item__label">馆藏查询</div>
+            </div>
+        </main>
+    </main>
+    <footer>
+        <div class="tabBar">
+            <img src="http://lib.jxufe.edu.cn/sites/all/themes/jxcdlib/images/jiaohu-4.svg" alt="" class="tabBar_item">
+            <img src="http://lib.jxufe.edu.cn/sites/all/themes/jxcdlib/images/jiaohu-2.svg" alt="" class="tabBar_item">
+            <img src="http://lib.jxufe.edu.cn/sites/all/themes/jxcdlib/images/jiaohu-3.svg" alt="" class="tabBar_item">
+        </div>
+    </footer>
+</body>
+</html>

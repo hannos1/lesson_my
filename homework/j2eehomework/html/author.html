@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./common.css">
+    <link rel="stylesheet" href="./workspace.css">
+
+    <style>
+        .cardmask{
+            position: absolute;
+            top: 44%;
+            left: 50%;
+            transform:translate(-50%,-50%);
+            width:900px;
+            height:300px;
+            /* background-color: black; */
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .card{
+            width:200px;
+            height:200px;
+            /* background-color:rgba(0, 0, 0, 0.2); */
+            background-color: #08AEEA;
+            background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+            box-shadow:2px 2px 1px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .card:hover{
+            transition:all 0.5s;
+            box-shadow:5px 5px 5px rgba(0, 0, 0, 0.5);
+            background-image: linear-gradient(90deg, #2AF598 0%, #08AEEA 100%);
+        }
+
+        .card:hover .code{
+            transition:all 0.5s;
+            text-shadow:2px 2px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .card:hover .name{
+            transition:all 0.5s;
+            text-shadow:2px 2px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .code,.name{
+            width:100%;
+            height:40px;
+            text-align:center;
+            line-height: 40px;
+            font-size: 20px;
+            color: white;
+            left:0;
+            position: relative;
+        }
+
+        .code{
+            top: 50px;
+        }
+
+        .code::before{
+            position: absolute;
+            content: "";
+            width:50%;
+            height:100%;
+            left:25%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .name{
+            top:60px;
+        }
+
+        .name::before{
+            position: absolute;
+            content: "";
+            width:50%;
+            height:100%;
+            left:25%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cardmask">
+            <div class="card">
+                <div class="code" style="font-weight: 700; color:yellow; font-size:25px;">
+                    02042
+                </div>
+                <div class="name" style="font-weight: 700; color:yellow; font-size:25px;">
+                    王渝晨
+                </div>
+            </div>
+            <div class="card">
+                <div class="code">
+                    02042
+                </div>
+                <div class="name">
+                    肖荐升
+                </div>
+            </div>
+            <div class="card">
+                <div class="code">
+                    02042
+                </div>
+                <div class="name">
+                    饶佳昊
+                </div>
+            </div>
+            <div class="card">
+                <div class="code">
+                    02042
+                </div>
+                <div class="name">
+                    陈琦锋
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

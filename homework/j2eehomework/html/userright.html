@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./common.css">
+    <link rel="stylesheet" href="./workspace.css">
+    <link rel="stylesheet" href="./tablelist.css">
+</head>
+<body>
+    <div class="container">
+        <div class="tablemask" id="console" style="top:8%;height: 140px;">
+        <table class="table">
+        <tr class="thead">
+            <th>用户登录名称</th>
+            <th>角色</th>
+            <th>操作</th>
+        </tr>
+        <tr class="tbody">
+            <td><input type="text" style="border-radius:2px;border:2px;text-align:center;outline:none;height:20px;"></td>
+            <td>
+                <select name="" id="" style="outline:none;border-radius:2px;width:150px;">
+                <option value="1">所有</option>
+                <option value="2">普通用户</option>
+                <option value="3">管理员</option>
+                <option value="4">系统管理员</option>
+                </select>
+            </td> 
+            <td>
+                <button class="update-btn">查询</button>
+                <button class="delete-btn" onclick="cancel()">取消</button>
+            </td>
+        </tr>
+        </table>
+        <span class="message">反馈信息:</span>
+        </div>
+        <div class="tablemask">
+        <table class="table">
+            <tr class="thead">
+                <th>ID</th>
+                <th>登录名称</th>
+                <th>用户昵称</th>
+                <th>角色</th>
+                <th>操作</th>
+            </tr>
+            <!-- <c:forEach var="userView" items="${result.data}"> -->
+            <tr class="tbody">
+                <td>${userView.id}</td>
+                <td>${userView.username}</td>
+                <td>${userView.caption}</td>             
+                <td>${userView.roleCode}</td>
+                <td>
+                    <button class="update-btn" onclick="edit()">编辑</button>
+                    <button class="delete-btn">删除</button>
+                </td>
+            </tr>
+            <tr class="tbody">
+                <td>${userView.id}</td>
+                <td>${userView.username}</td>
+                <td>${userView.caption}</td>             
+                <td>${userView.roleCode}</td>
+                <td>
+                    <button class="update-btn">编辑</button>
+                    <button class="delete-btn">删除</button>
+                </td>
+            </tr>
+            <!-- </c:forEach> -->
+        </table>
+        <div class="foot">
+            <span class="message">反馈信息:</span>
+            <button class="page-btn" style="margin-left:270px;">查询</button>
+            <button class="page-btn">添加</button>
+            <button class="page-btn"><<</button>
+            <button class="page-btn"><</button>
+            <button class="page-btn">1</button>
+            <button class="page-btn">></button>
+            <button class="page-btn">>></button>
+            <span class="message">页容量:</span>
+            <select name="" id="" style="outline:none;border-radius:5px;">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+            </select>
+            <span class="message">总记录数:</span>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        function cancel(){
+            document.getElementById("console").setAttribute("style","height:0");
+        }
+
+        function edit(){
+            document.getElementById("console").setAttribute("style","top:8%;height: 140px;")
+        }
+
+    </script>
+</body>
+</html>

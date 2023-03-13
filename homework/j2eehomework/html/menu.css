@@ -1,0 +1,193 @@
+.container{
+    /* position: relative; */
+    display: flex;
+    height: 100%;
+    width: 100%;
+    /* background-color: rgb(56, 40, 40); */
+    background-image: linear-gradient(60deg,rgb(18, 151, 171), rgb(29, 87, 105), rgb(65, 46, 46));
+    flex-flow: column wrap;
+    /* padding: 20px 0 20px 0; */
+}
+
+.li{
+    position: relative;
+    /* background-color: pink; */
+    width: 48px;
+    height: 48px;
+    margin: 10px 0 10px 5px;
+    /* margin: 2px 0 2px 5px; */
+    z-index: 9999;
+}
+
+.img{
+    /* z-index: 9999; */
+    position: absolute;
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    background-image: url(./tags.png);
+    background-size: 500% 300%;
+    overflow: hidden;
+}
+
+
+.span{
+    position: absolute;
+    display: inline-block;
+    height: 48px;
+    width: 0;
+    line-height: 48px;
+    text-align: center;
+    top: 0;
+    left: 48px;
+    overflow: hidden;
+    font-weight: 700;
+    font-size: 20px;
+    color: rgb(189, 233, 193);
+}
+/* 
+.chose{
+    opacity: 0;
+} */
+
+.limask{
+    position: absolute;
+    display: inline-block;
+    height: 48px;
+    width: 48px;
+    left: 0;
+    top: 0;
+    /* z-index: 9998; */
+}
+
+
+
+.libt{
+    /* z-index: 9999; */
+    width: 48px;
+    height: 100%;
+    /* visibility: hidden; */
+    opacity: 0.4;
+    border-radius: 5px;
+    /* box-shadow: 1px 1px 0 black; */
+}
+
+
+
+.li:hover > .span{
+    width:90px;
+    transition:width 1s ease-in-out;
+    -moz-transition:all 1s ease-in-out;
+}
+
+.li:hover > .limask > .libt{
+    width:138px;
+    background-color: rgba(23, 27, 33, 0.9);
+    transition:width 1s ease-in-out;
+    -moz-transition:all 1s ease-in-out;
+}
+
+/* .container:hover >.li >#span1{
+    width:90px;
+    transition:width 0.2s ease-in-out;
+    -moz-transition:all 0.2s ease-in-out;
+}
+
+.container:hover >.li >.limask>#libt1{
+    width:138px;
+    background-color: rgba(23, 27, 33, 0.9);
+    transition:width 0.2s ease-in-out;
+    -moz-transition:all 0.2s ease-in-out;
+}
+
+.container:hover >.li >#span2{
+    width:90px;
+    transition:width 0.4s ease-in-out;
+    -moz-transition:all 0.4s ease-in-out;
+}
+
+.container:hover >.li >.limask>#libt2{
+    width:138px;
+    background-color: rgba(23, 27, 33, 0.9);
+    transition:width 0.4s ease-in-out;
+    -moz-transition:all 0.4s ease-in-out;
+}
+
+
+.container:hover >.li >#span3{
+    width:90px;
+    transition:width 0.6s ease-in-out;
+    -moz-transition:all 0.6s ease-in-out;
+}
+
+.container:hover >.li >.limask>#libt3{
+    width:138px;
+    background-color: rgba(23, 27, 33, 0.9);
+    transition:width 0.6s ease-in-out;
+    -moz-transition:all 0.6s ease-in-out;
+}
+
+.container:hover >.li >#span4{
+    width:90px;
+    transition:width 0.8s ease-in-out;
+    -moz-transition:all 0.8s ease-in-out;
+}
+
+.container:hover >.li >.limask>#libt4{
+    width:138px;
+    background-color: rgba(23, 27, 33, 0.9);
+    transition:width 0.8s ease-in-out;
+    -moz-transition:all 0.8s ease-in-out;
+}
+
+.container:hover >.li >#span5{
+    width:90px;
+    transition:width 1s ease-in-out;
+    -moz-transition:all 1s ease-in-out;
+}
+
+.container:hover >.li >.limask>#libt5{
+    width:138px;
+    background-color: rgba(23, 27, 33, 0.9);
+    transition:width 1s ease-in-out;
+    -moz-transition:all 1s ease-in-out;
+}
+
+.container:hover >.li >#span6{
+    width:90px;
+    transition:width 1.2s ease-in-out;
+    -moz-transition:all 1.2s ease-in-out;
+}
+
+.container:hover >.li >.limask>#libt6{
+    width:138px;
+    background-color: rgba(23, 27, 33, 0.9);
+    transition:width 1.2s ease-in-out;
+    -moz-transition:all 1.2s ease-in-out;
+}
+
+.container:hover >.li >#span7{
+    width:90px;
+    transition:width 1.4s ease-in-out;
+    -moz-transition:all 1.4s ease-in-out;
+}
+
+.container:hover >.li >.limask>#libt7{
+    width:138px;
+    background-color: rgba(23, 27, 33, 0.9);
+    transition:width 1.4s ease-in-out;
+    -moz-transition:all 1.4s ease-in-out;
+}
+
+.container:hover >.li >#span8{
+    width:90px;
+    transition:width 1.6s ease-in-out;
+    -moz-transition:all 1.6s ease-in-out;
+}
+
+.container:hover >.li >.limask>#libt8{
+    width:138px;
+    background-color: rgba(23, 27, 33, 0.9);
+    transition:width 1.6s ease-in-out;
+    -moz-transition:all 1.6s ease-in-out;
+} */
