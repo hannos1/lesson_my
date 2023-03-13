@@ -11,7 +11,7 @@
 
     npm i json-server  加一个package-lock和modules 等于 npm install json-server 下载json-server
 
-    npm cache clean --force 清理缓存，报错时用
+    npm cache clean --force 清理缓存，报错时用  有时候需要管理员运行命令行
 
     修改package.json脚本区,这里是直接绑定文件  "dev": "json-server --watch student.json"
 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+</head>
+<body>
+    <div>
+        <label for="unThrottle">没有节流的input 
+        <input id="unThrottle" type="text">
+    </div>
+    <div>
+        <label for="debounce">防抖后的input</label>  
+        <input id="debounce"type="text">
+    </div>
+    <div>
+        <label for="throttle">节流后的input</label>  
+        <input id="throttle"type="text">
+    </div>
+    <script>
+        // 对象是函数
+        // 优化执行次数
+        function ajax(content){
+            console.log('ajax request' + content)
+        }
+        // 函数嵌套函数
+        function throttle(func,delay){
+            let last, // 记录最后一次func 执行时间
+             deferTimer;  
+
+            return function(...args){
+                let that = this;// 缓存  throttleAjax  运行时的this
+                let now = +new Date() // [Object Date] -> 整数类型
+                if(last && now < last + delay){
+                    clearTimeout(deferTimer);
+                    deferTimer = setTimeout(function(){
+                        last = now;
+                        func.apply(that,args);
+                    },delay);
+                }else{
+                    last = now;
+                    func.apply(that,args);
+                }
+            }
+        }
+        let inputc = document.getElementById('throttle')
+        let inputb = document.getElementById('debounce')
+        // let throttleAjax = throttle(ajax,1000)
+        let debounceAjax = _.debounce(ajax,1000);
+        let throttleAjax = _.throttle(ajax,1000)
+        inputc.addEventListener('keyup',function(e){
+            throttleAjax(e.target.value)
+        })
+        inputb.addEventListener('keyup',function(e){
+            debounceAjax(e.target.value)
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .loginModal{
+            z-index: 9999;
+            width: 60vw;
+            height: 60vh;
+            position: absolute;
+            top: 20vh;
+            left: 20vw;
+            background-color: rgba(0,0,0,0.3);
+        }
+        .hide{
+            display: none;
+        }
+        .close{
+            position: absolute;
+            right: 20px;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="loginModal">
+        <div class="close">x</div>
+    </div> -->
+    <a href="javascript:;" class="btn">登录</a>
+    <br>
+    <br>
+    <br>
+    <a href="javascript:;" class="btn">登录</a>
+    <script>
+        class SingleLoginModal{
+            constructor(){
+                const modal = document.createElement('div');
+                modal.className = 'loginModal';
+                const close = document.createElement('div');
+                close.className = 'close';
+                close.appendChild(
+                    document.createTextNode('x')
+                )
+                modal.appendChild(close);
+                document.body.appendChild(modal)
+                var that = this;
+                close.addEventListener('click',function(){
+                    that.hide()
+                })
+            }
+            show(){
+                const modal = document.querySelector('.loginModal')
+                modal.classList.remove('hide')
+            }
+            hide(){
+                const modal = document.querySelector('.loginModal');
+                modal.classList.add('hide')
+            }
+            static getInstance(){
+                if(!SingleLoginModal.instance){
+                    SingleLoginModal.instance = new SingleLoginModal();
+                }
+                return SingleLoginModal.instance;
+            }
+        }
+
+        document.body.addEventListener('click',function(event){
+            console.log(event.target)
+            if(event.target.className == 'btn'){
+                console.log('登录弹窗出来...')
+                const modal = SingleLoginModal.getInstance();
+                modal.show();
+            }
+        })
+
+        // document.querySelector('.close').addEventListener('click',function(){
+        //     console.log('隐藏...')
+        // })
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单例模式</title>
+</head>
+<body>
+    <button type="button" onclick="ffclick()">视频</button>
+    <button type="button" name="register" onclick="refef()">登录</button>
+    
+    <div style="width:100px;height:100px;background-color:red;display:none;"></div>
+    <script>
+        // 一个对象只能实例化一次
+        // 登录弹窗  封装成一个类  html  css  js  切换显示和隐藏  封装进去
+        // 触发第一次鉴权，实例化一下，
+        // 再次去触发鉴权，不用实例化，调用它的show方法
+        class SingleDog{
+            show(){
+                console.log('我是一个公共方法，供实例调用')
+            }
+            // 静态方法
+            static getInstance(){
+                // console.log('单例模式由静态方法提供, 只有类本身能调用, 不是给实例用的');
+                if(!SingleDog.instance){
+                    SingleDog.instance = new SingleDog();// 实例化
+                    SingleDog.instance.rewindow = document.querySelector('div')
+                }
+                return SingleDog.instance;
+            }
+        }
+
+        function ffclick(){
+            console.log('1')
+            SingleDog.getInstance().rewindow.style.display = '';
+        }
+
+        function refef(){
+            console.log('1')
+            SingleDog.getInstance().rewindow.style.display = '';
+        }
+
+        
+        
+        // console.log(SingleDog.getInstance() === SingleDog.getInstance())
+    </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<view class="page">
+  <swiper class="banner" indicator-dots="{{true}}">
+    <swiper-item wx:for="{{banners}}" wx:key="{{item.id}}" bindtap="gotoDetail" data-id="{{item.id}}">
+      <image src="{{item.pic}}"/>
+    </swiper-item>
+  </swiper>
+</view>
