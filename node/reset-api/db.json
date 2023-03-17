@@ -1,0 +1,49 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "双向的websocket通信",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "hello react",
+      "postId": 1
+    },
+    {
+      "body": "hello react",
+      "postId": 1,
+      "id": 3
+    },
+    {
+      "body": "hello react",
+      "postId": "1",
+      "id": 4
+    },
+    {
+      "body": "hello react",
+      "postId": "1",
+      "id": 5
+    },
+    {
+      "body": "hello react",
+      "postId": "1",
+      "id": 6
+    },
+    {
+      "body": "hello react",
+      "postId": "1",
+      "id": 7
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
