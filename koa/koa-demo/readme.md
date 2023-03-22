@@ -38,10 +38,55 @@
         ctx.req  请求行  http 版本号  url  method
         多个路由中间件
         如果url method 和当前洋葱模型执行顺序里的路由中间件匹配，进入控制器函数执行
-        
+
+
+- koa view层
+    1. 传统的mvc  
+        经典的后端架构和设计模式
+        router -> controller(数据准备，逻辑) -> views (html)
+    2. ctx.render
+        ctx 是上下文环境 req + res
+        可以省略response
+        ctx.render = ctx.response.render
+    3. views 目录和view层
+        配置一下
+    4. 使用ejs模板引擎
+        {{  }}
+        <%= %>
+        传统mvc在模板编译后 完整的输出给浏览器
+        前后端分离 只有一个挂载点 vue组件动态挂载到节点上
+        - MVVM 大型项目，更适合合作，前后端分离，应用打开快体验好
+        - 前后端分离缺点是：
+            SEO极其差  #root  百度搜索引擎不会解析js ajax数据
+            对于手机app里 无所谓SEO的 以体验为先Mobile First
+            掘金 csdn 搜狐 非常在乎SEO的不适合  
+            所以需要服务器端渲染的vue  nuxt + js
+        - MVC 优点SEO
+        - koa-views views中间件函数 挂载在app上
+            - 配置views 所在
+                ctx.render 指定模板名字
+            - 指定模板引擎 ejs  pug
+                <%= %>
+            - 洋葱模型顺序 views中间件  配置性中间件 需要放在路由中间件前面
+        - ctx.render
+            模板在服务器端编译 返回所有的html 对SEO很友好
+                爬虫通过发送请求在建立内容分析  curl
+        - PC端 入口在百度
+        - 移动端在应用市场  MVVM
+
+- meta viewport
+    SEO 要注意meta 标签的使用
+    head 里 meta 通常用来丰富页面的信息和属性
+    description 页面描述 方便seo 
+    keywords 关键词 方便seo
+    viewport  用于适配  PC端不用
+    移动端 init-scale=1.0  width=device-width  user-scaleable=no   视窗缩放1.0，宽度等于设备宽度，禁用缩放功能
+    因为缩放有时候会误操作，触发回到上一页或者下一页
 
 
 - 依赖
     npm i koa
     npm i nodemon
     npm i koa-router
+    npm i ejs
+    npm i koa-views

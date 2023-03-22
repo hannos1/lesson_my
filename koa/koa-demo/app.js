@@ -2,8 +2,14 @@ const Koa = require('koa')
 const config = require('./config/default.js')
 const signupRouter = require('./routers/signup.js')
 const postsRouter = require('./routers/posts.js')
+const path = require('path')
+const views = require('koa-views')
 
 const app = new Koa()
+// 配置view映射地址
+app.use(views(path.join(__dirname,'./views'),{
+    extension:'ejs'
+}))
 // 洋葱模型
 // blog  网站   
 // 一个函数解决一个问题
@@ -32,6 +38,8 @@ const app = new Koa()
 //     })
 //     return 'hello world'
 // }
+
+
 
 app.use(signupRouter.routes())
 app.use(postsRouter.routes())
