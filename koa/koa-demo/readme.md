@@ -82,6 +82,27 @@
     viewport  用于适配  PC端不用
     移动端 init-scale=1.0  width=device-width  user-scaleable=no   视窗缩放1.0，宽度等于设备宽度，禁用缩放功能
     因为缩放有时候会误操作，触发回到上一页或者下一页
+    www.taobao.com -> m.taobao.com  
+    PC 一套  nuxt
+    mobiel SPA
+
+- 静态资源koa处理
+    - css js image
+        - 不归动态(逻辑，数据库，服务器端声明内存的)路由管  放服务器集群中
+        - 前端写的绝大部分都是静态资源 webpack vite 打包 dist/
+            未来会单独放在cdn服务器   静态资源可以前端缓存
+    - 单独处理静态资源路由  
+    - http://127.0.0.1:3000/index.css 
+        静态服务器static + 缓存cache koa-static-cache
+        - / 动态服务器路由，首页  url
+        - / 静态服务器  静态服务器放在路由前面  link标签
+            / -> 配置的 /public
+        - 时间内，客户端不用再请求，http优化的重要理解
+            200 第一次
+            第二次 304 not modified
+            maxAge后回去服务器再请求，再更新
+            
+
 
 
 - 依赖
@@ -90,3 +111,4 @@
     npm i koa-router
     npm i ejs
     npm i koa-views
+    npm i koa-static-cache

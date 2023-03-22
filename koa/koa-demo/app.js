@@ -4,8 +4,12 @@ const signupRouter = require('./routers/signup.js')
 const postsRouter = require('./routers/posts.js')
 const path = require('path')
 const views = require('koa-views')
-
 const app = new Koa()
+const staticCache = require('koa-static-cache')
+
+app.use(staticCache(path.join(__dirname,'./public'),{dynamic:true},{
+    maxAge:15*24*60*60 // 15天
+}))
 // 配置view映射地址
 app.use(views(path.join(__dirname,'./views'),{
     extension:'ejs'
