@@ -1,8 +1,110 @@
 <%- include('header',{type:'signup'})%>
-<form>
-    <div>
-        <label>用户名</label>
-        <input>
-    </div>
-</form>
+<div class="container">
+    <!-- ajax提交 -->
+    <form class="form create">
+        <div>
+            <label>用户名</label>
+            <input type="text" placeholder="请输入用户名" name="name">
+        </div>
+        <div>
+            <label>密码</label>
+            <input type="password" placeholder="请输入密码" name="password">
+        </div>
+        <div>
+            <label>重复密码</label>
+            <input type="password" placeholder="请确认密码" name="repeatpass">
+        </div>
+        <div>
+            <label>上传头像：</label>
+            <input type="file" name="avatar" id="avatar">
+            <input type="hidden" id="avatarVal">
+            <img src="" class="preview" alt="预览头像">
+        </div>
+        <div class="submit">注册</div>
+    </form>
+</div>
+<script>
+    $(window).keyup(function(e){
+        if(e.keyCode === 13){
+            $('.submit').click()
+        }
+    })
+
+    $('#avatar').change(function(){
+        if(this.files.length != 0){
+            const file = this.files[0];
+            reader = new FileReader();  // html5 filereader
+            console.log(file,'///')
+            if(!reader){
+                this.value = ''
+                return;
+            }
+            if(file.size >= 1024*1024/2){ // 不超过512kb
+                alert('文件过大，请勿超过512kb')
+                return 
+            }
+            if(!/image/g.test(file.type)){
+                alert('请上传图片')
+                $('#avatarVal').val('')
+                $('form .preview').attr('src','')
+                $('form .preview').fadeOut()  // 消失
+                return 
+            }
+            reader.onload = function(e){
+                console.log(e.target.result,'////')
+                this.value = ''
+                $('form .preview').attr('src',e.target.result)
+                $('form .preview').fadeIn()
+                var image = new Image()
+                image.onload = function(){
+                    const canvas = document.createElement('canvas')  // 使用canvas来压缩图片文件
+                    const ctx = canvas.getContext('2d')
+                    canvas.width = 100
+                    canvas.height = 100
+                    ctx.clearRect(0,0,100,100) // 清空
+                    ctx.drawImage(image,0,0,100,100)  // 画一个image
+                    const blob = canvas.toDataURL('image/png');  // base64 url
+                    $('#avatarVal').val(blob)
+                }
+                image.src = e.target.result
+            }
+            reader.readAsDataURL(file)  // 返回base64格式
+        }
+    })
+
+    $('.submit')
+        .click(function(){
+            if($('input[name=name]').val().trim() == ''){
+                alert('请输入用户名')
+                return
+            }
+            if($('input[name=password]').val().trim() == ''){
+                alert('请输入密码')
+                return
+            }
+            if($('input[name=repeatpass]').val().trim() == ''){
+                alert('请输入确认密码')
+                return
+            }
+            if($('input[name=password]').val() !== $('input[name=repeatpass]').val()){
+                alert('请确认密码一致')
+                return
+            }
+            $.ajax({
+                url:'/signup',
+                data:{
+                    name:$('input[name=name]').val(),
+                    password:$('input[name=password]').val(),
+                    repeatpass:$('input[name=repeatpass]').val(),
+                    avatar:$('#avatarVal').val()
+                },
+                type:'POST',
+                cache:false, // 不要对请求做缓存
+                dataType:'json',
+                success:function(msg){
+                    
+                }
+            })
+    })
+</script>
 <%- include('footer')%>

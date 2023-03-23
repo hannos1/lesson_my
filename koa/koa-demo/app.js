@@ -6,13 +6,19 @@ const path = require('path')
 const views = require('koa-views')
 const app = new Koa()
 const staticCache = require('koa-static-cache')
+const bodyParser = require('koa-bodyparser')
 
+// 静态资源配置地址
 app.use(staticCache(path.join(__dirname,'./public'),{dynamic:true},{
     maxAge:15*24*60*60 // 15天
 }))
 // 配置view映射地址
 app.use(views(path.join(__dirname,'./views'),{
     extension:'ejs'
+}))
+
+app.use(bodyParser({
+    formLimit:'1mb'
 }))
 // 洋葱模型
 // blog  网站   

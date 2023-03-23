@@ -9,5 +9,6 @@ exports.getSignup = async ctx => {
 
 exports.postSignup = async ctx => {
     // 从control到model层
-    
+    console.log(ctx.request.body)
+    ctx.body = 'post'
 }

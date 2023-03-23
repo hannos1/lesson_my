@@ -101,9 +101,26 @@
             200 第一次
             第二次 304 not modified
             maxAge后回去服务器再请求，再更新
-            
 
+- 登录的用户体验
+    - keyup事件 enter 提交  手机  enter  虚拟键盘
+    - 做好校验
+        前端校验(用户体验，及时提醒)，后端也要做(有时候js可以禁用，后端不会信任前端传输的任何东西)，为了数据安全
+        后端对数据安全负第一责任
 
+- 文件对象是html5的重大功能
+    - 提供了File对象
+        文件在上传到服务器之前，就可以访问到本地的文件 类型 大小 等
+    - 提供了FileReader对象
+        可以异步从硬盘读取内容到内存，以url，base64 blob格式
+        看到图片上传
+        文件大小 比较大 用户可能要等好久才能上传完，如果没有交互体现正在上传的话，用户会很焦虑
+
+- bodyParser 中间件
+    POST请求和GET请求不一样 
+    GET查询 参数在请求行就已到位
+    POST请求体 请求头header里有数据长度length 分段传输 路由中间件需要加一个请求数据包收集中间件bodyParser
+    bodyParser await收集数据包体
 
 - 依赖
     npm i koa
@@ -112,3 +129,4 @@
     npm i ejs
     npm i koa-views
     npm i koa-static-cache
+    npm i koa-bodyparser
