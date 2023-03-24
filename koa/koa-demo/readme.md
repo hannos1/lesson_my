@@ -122,6 +122,17 @@
     POST请求体 请求头header里有数据长度length 分段传输 路由中间件需要加一个请求数据包收集中间件bodyParser
     bodyParser await收集数据包体
 
+- node 做后端
+    优点是异步 与 其他语言不一样的  性能更好， no blocking 
+    一台服务器，上限是同时在线5000人，并发nginx/tomcat 
+    php/java/python  同步 blocking 在sql请求(I/O)耗时任务中 占据线程
+    node 异步的 有eventloop 在sql请求(I/O)耗时任务中 进入event loop
+    nginx/tomcat  线程会被释放 不会阻塞  no blocking 
+    省很多服务器，支持高并发
+    java c++ 有多线程 
+    node 单线程  跟法师一样脆  服务器会崩  所有用户都不响应  try catch
+    pm2 进程管理工具 
+
 - 依赖
     npm i koa
     npm i nodemon
@@ -130,3 +141,4 @@
     npm i koa-views
     npm i koa-static-cache
     npm i koa-bodyparser
+    npm i mysql2
