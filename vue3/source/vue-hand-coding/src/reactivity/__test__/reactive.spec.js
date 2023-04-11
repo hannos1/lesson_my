@@ -13,16 +13,30 @@ describe('测试响应式', () => {
     it('reactive 基本使用',() => {
         let obj = {num:0}
         // expect(1 + 2).toBe(3)
-        const ret1 = reactive(obj)
-        const ret2 = reactive(obj)
+        const ret = reactive(obj)
         let val
         effect(() => {
             val = ret.num
         }) // 收集依赖
         expect(val).toBe(0)
-        // ret.num++
-        // expect(val).toBe(1)
+        ret.num++
+        expect(val).toBe(1)
         // ret.num = 10
         // expect(val).toBe(10)
+    })
+    test('一个reactive 对象的属性在多个effect中',() => {
+        const ret = reactive({num:0})
+        let val,val2
+        effect(() => {
+            val = ret.num
+        })
+        effect(() => {
+            val2 = ret.num
+        })
+        expect(val).toBe(0)
+        expect(val).toBe(0)
+        ret.num++
+        expect(val).toBe(1)
+        expect(val2).toBe(1)
     })
 })

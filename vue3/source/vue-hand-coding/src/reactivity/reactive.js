@@ -2,6 +2,12 @@
 // 组件卸载 WeakMap会自动删除 弱引用
 import {mutableHandlers} from './baseHandlers'
 export const reactiveMap = new WeakMap()  // 缓存map 性能优化
+
+export const ReactiveFlags = {
+    RAW:"__v_raw",  // 没有响应的对象
+    IS_REACTIVE:"__V_isReactive"
+}
+
 // 响应式
 export function reactive(target){
     // mutableHandlers的属性是代理对象(Proxy)触发get、set、has、delete时相应的回调函数
