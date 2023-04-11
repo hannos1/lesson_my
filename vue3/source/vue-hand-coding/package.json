@@ -1,18 +1,21 @@
 {
   "name": "vue-hand-coding",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "jest"
   },
   "dependencies": {
+    "jest": "^29.5.0",
     "vue": "^3.2.47"
   },
   "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
     "@vitejs/plugin-vue": "^4.1.0",
+    "babel-jest": "^29.5.0",
     "vite": "^4.2.0"
   }
 }
