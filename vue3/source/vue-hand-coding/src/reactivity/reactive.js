@@ -1,21 +1,33 @@
 // vue中的依赖关系是用"对象"来组织的 key为对象此时用map收集更适合
 // 组件卸载 WeakMap会自动删除 弱引用
-import {mutableHandlers} from './baseHandlers'
+import {
+    mutableHandlers,
+    shallowReactiveHandlers
+} from './baseHandlers'
 export const reactiveMap = new WeakMap()  // 缓存map 性能优化
+export const shallowReactiveMap = new WeakMap() // 同缓存
 
 export const ReactiveFlags = {
     RAW:"__v_raw",  // 没有响应的对象
     IS_REACTIVE:"__V_isReactive"
 }
+// 浅层代理
+export function shallowReactive(target){
+    return createReactiveObject(
+        target,
+        shallowReactiveMap,
+        shallowReactiveHandlers
+    )
+}
 
 // 响应式
-export function reactive(target){
+export function reactive(target){ // 1.
     // mutableHandlers的属性是代理对象(Proxy)触发get、set、has、delete时相应的回调函数
     return createReactiveObject(target,reactiveMap,mutableHandlers)
 }
 
 
-function createReactiveObject(target,proxyMap,proxyHandlers){
+function createReactiveObject(target,proxyMap,proxyHandlers){ // 2.
     if(typeof target !== 'object'){
         console.warn(`reactive ${target} 必须是一个对象`)
         return target
