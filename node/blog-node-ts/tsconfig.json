@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "declaration": true,
+      "removeComments": true,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "target": "es2017",
+      "sourceMap": true,
+      "outDir": "./dist",
+      "baseUrl": "./",
+      "incremental": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist"]
+}
+
+// 这是一个 TypeScript 项目的 tsconfig.json 文件。tsconfig.json 文件是 TypeScript 编译器的配置文件，用于指定编译器如何编译 TypeScript 代码。以下是每个选项的含义：
+// - "module": "commonjs"：指定编译器将使用 CommonJS 模块系统。
+// - "declaration": true：指定编译器将生成 .d.ts 声明文件。
+// - "removeComments": true：指定编译器将从输出文件中删除注释。
+// - "emitDecoratorMetadata": true：指定编译器将为装饰器提供元数据。
+// - "experimentalDecorators": true：指定编译器将启用实验性的装饰器特性。
+// - "allowSyntheticDefaultImports": true：指定编译器将允许导入没有默认导出的模块。
+// - "esModuleInterop": true：指定编译器将生成 CommonJS 模块时使用 ES 模块语义。
+// - "target": "es2017"：指定编译器将编译为 ECMAScript 2017。
+// - "sourceMap": true：指定编译器将生成 source map 文件。
+// - "outDir": "./dist"：指定编译器将输出文件放置在 dist 目录中。
+// - "baseUrl": "./"：指定编译器将解析非相对模块名称的基本目录。
+// - "incremental": true：指定编译器将启用增量编译。
