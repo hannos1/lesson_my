@@ -26,3 +26,6 @@ export const {
 } = process.env
 
 export const {ALLOW_ORIGIN} = process.env
+
+export let {PUBLIC_KEY} = process.env 
+PUBLIC_KEY = Buffer.from(PUBLIC_KEY,'base64').toString()
